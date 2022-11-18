@@ -1,0 +1,55 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="https://cdn-icons-png.flaticon.com/512/3439/3439699.png" />
+</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">My list</a>
+          </li>
+          <li class="nav-item">
+            <%= link_to "New list", new_list_path, class:"nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  />
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+            </div>
+          </li>
+          <!--li class="nav-item"-->
+          <!--/li-->
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fG1vdmllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60);">
+  <div class="container">
+    <h1>Save any kind of movies <strong>thanks to Franck</strong>!</h1>
+    <p>Change your life and learn what a bookmark is</p>
+    <%= link_to "Create a movie list", new_list_path, class:"btn btn-flat" %>
+  </div>
+</div>
+<h2>My list</h2>
+<ul>
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <%= link_to list_path(list) do %>
+        <div class="card-category" style="url(https://unsplash.com/photos/wMkaMXTJjlQ)">
+          <p>
+            <%= list.name %>
+          </p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+</ul>
